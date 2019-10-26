@@ -1,0 +1,415 @@
+\documentclass[10pt]{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+% \usepackage{endnotes}
+
+% To make this come out properly in landscape mode, do one of the following
+% 1.
+%  pdflatex latexsheet.tex
+%
+% 2.
+%  latex latexsheet.tex
+%  dvips -P pdf  -t landscape latexsheet.dvi
+%  ps2pdf latexsheet.ps
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+    {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+ 
+% Put footnotes at end of document
+% \let\footnote=\endnote
+
+% Redefine section commands to use less space
+\titleformat{\section}{\centering\large\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{0.5ex plus 0.2ex}{-2ex plus -0.5ex minus%
+-0.2ex}
+\titleformat{\subsection}{\centering\normalsize\bfseries}{}{0em}{}
+\titlespacing{\subsection}{0pt}{0.5ex plus 0.2ex}{0ex plus -0.5ex%
+minus 0.2ex}
+\titleformat{\subsubsection}{\centering\small\bfseries}{}{0em}{}
+\titlespacing{\subsubsection}{0pt}{0.5ex plus 0.2ex}{-2ex plus -0.5ex%
+minus 0.2ex}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+\setlength{\mathindent}{0pt}
+
+\newcommand{\scinot}[2]{\ensuremath{#1 \times 10^{#2}}}
+\newcommand{\id}[1]{\mathrm{d} #1}
+\newcommand{\bvec}[1]{\vec{\mathbf{#1}}}
+\newcommand{\buvec}[1]{\hat{\mathbf{#1}}}
+\DeclareMathOperator{\sign}{sign}
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+\raggedleft
+\footnotesize
+\begin{multicols*}{5}
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+    \Large
+    Physics \textrm{II} \\
+    Formula Sheet
+\end{center}
+
+\section{Constants}
+
+\begin{alignat*}{2}
+    c   &= \scinot{2.998}{8}   && \quad \mathrm{m / s}\\
+    q_e &= \scinot{1.602}{-19} && \quad \mathrm{C}\\
+    m_e &= \scinot{9.109}{-31} && \quad \mathrm{kg}\\
+    \mu_e &= \scinot{-9.285}{-24} && \quad \mathrm{J/T}\\
+    k   &= \scinot{8.988}{9}   && \quad \mathrm{N \cdot m^2 \cdot
+    C^{-2}}\\
+    \varepsilon_0 &= \frac{1}{4\pi k} \\
+        &= \scinot{8.854}{-12} && \quad \mathrm{F \cdot m^{-1}}\\
+	\mu_0 &= \scinot{1.257}{-6} && \quad \mathrm{T \cdot m/A}\\
+    A_v &= \scinot{6.022}{23} && \quad (\text{None})
+\end{alignat*}
+
+\section{Electricity}
+
+\begin{align*}
+    \vec{E}_{iP} &= \frac{kq_i}{r_{iP}^2} \hat{\mathbf{r}}_{iP}\\
+    V &= \frac{kq}{r}\\
+    U &= qV = \frac{kq'q}{r}\\
+    \phi_\text{net} &= \oint_S \bvec{E} \cdot \, \buvec{n} \id{A} =
+    \frac{Q}{\varepsilon_0} && (\text{Gauss's Law})\\
+    U &= \frac{1}{2} \sum_{i=1}^n q_i V_i\\
+    U &= \frac{1}{2} QV
+\end{align*}
+
+\subsection{Electric Dipoles}
+\begin{align*}
+    \vec{p} &= q\vec{L}\\
+    \vec{E} &= \frac{2kp}{\|x\|^3} \quad (x \to \infty)\\
+    \vec{\boldsymbol{\tau}} &= \bvec{p} \times \bvec{L}\\
+    U &= -pE\cos \theta + U_0\\
+    U &= -\bvec{p} \cdot \bvec{E} \quad (\text{if $U_0 = 0$})\\
+    V &= \frac{kp}{x^2} \quad (x \gg \ell)
+\end{align*}
+
+\section{Magnetism}
+
+\begin{align*}
+    \vec{F} &= q\vec{v} \times \vec{B} && (\text{Lorentz Force})\\
+      &= I\vec{L} \times \vec{B}\\
+    T &= \frac{2\pi m}{qB} && (\text{Period})\\
+    \omega &= 2\pi f = \frac{q}{m}B\\
+    \mathcal{E} &= -\frac{\id{\phi_m}}{\id{t}} && (\text{Faraday's
+	Law})\\
+                &= -L \frac{\id{I}}{\id{t}}\\
+    \vec{B} &= \frac{\mu_0}{4\pi} \frac{q\vec{v} \times \buvec{r}}
+    {r^2}\\
+    \id{\vec{B}} &= \frac{\mu_0}{4\pi} \frac{I\id{\vec{\ell}} \times
+    \buvec{r}} {r^2} && (\text{Biot-Savart Law})\\
+    \oint \bvec{B} &\cdot_C \id{\buvec{\ell}} = \mu_0 I_C &&
+    (\text{Amp\`{e}re's Law})\\
+    V_\mathrm{H} &= E_\mathrm{H} w \\
+    &= \upsilon_\mathrm{d}Bw && (\text{Hall Voltage})\\
+    n &= \frac{|I|B}{tq_eV_\mathrm{H}}
+\end{align*}
+
+\subsection{Magnetization}
+
+\begin{align*}
+    \vec{M} &= \frac{\id{\vec{\mu}}}{\id V} =
+    \frac{\id{\vec{I}}}{\id{\ell}}\\
+    \vec{B} &= \vec{B}_\text{app} + \mu_0 \vec{M}\\
+	    &= \vec{B}_\text{app} (1 + \chi_m)\\
+	    &= \vec{B}_\text{app} K_m
+\end{align*}
+
+\subsection{Magnetic Dipoles}
+
+\begin{align*}
+    \vec{\mu} &= NIA \buvec{n}\\
+    \vec{\tau} &= \vec{\mu} \times \vec{B}\\
+    U &= -\mu B \cos \theta + U_0\\
+      &= -\vec{\mu} \cdot \vec{B}
+\end{align*}
+
+\subsection{The Mass Spectrometer (Cyclotron)}
+
+\begin{align*}
+    v &= \frac{rqB}{m}\\
+    \frac{m}{q} &= \frac{(Br)^2}{2 |\Delta V|}\\
+    K &= \frac{1}{2} m v^2 = \frac{1}{2}
+    \frac{\left({qBr}\right)^2}{m}
+\end{align*}
+
+\subsection{Coils}
+
+\begin{align*}
+    B &= \frac{1}{2} \mu_0 nI \left({\frac{z-z_1}{\sqrt{(z-z_1)^2 +
+	    R^2}} - \frac{z-z_2}{\sqrt{(z-z_2)^2 + R^2}}}\right)\\
+      &= \frac{1}{2} \mu_0 nI \frac{\ell}{\sqrt{(\ell/2)^2 + R^2}}
+	  \quad (\text{Solenoid})\\
+      &\approx N\mu_0 I\\
+    L &= \mu_0 n^2 A \ell\\
+    B &= \frac{\mu_0NI}{2\pi r} \qquad (\text{Toroid})\\
+    \phi_m &= NBA \cos \theta
+    % \footnote{$\theta$ is the angle between the normal vector and the
+	% field.}
+\end{align*}
+
+\section{Circuits}
+
+\begin{align*}
+    \hspace{2em} V &= IR && (\text{Ohm's Law})\\
+    P &= IV = I \mathcal{E}\\
+    V_T &= \mathcal{E} - Ir\\
+    E &= Q \mathcal{E}\\
+    \bvec{J} &= qn\vec{\upsilon}_\mathrm{d}\\
+    I &= \pm JA\\
+    R &= \rho \frac{L}{A}\\
+    \frac{1}{C_{\text{eq}}} &= \frac{1}{C_1} + \cdots &&
+    (\text{Series})\\
+    C_{\text{eq}} &= C_1 + \cdots && (\text{Parrallel})\\
+\end{align*}
+
+\begin{align*}
+    \tau &= RC && (\text{RC Circuit})\\
+    \tau &= L/R && (\text{RL Circuit})
+\end{align*}
+
+\subsection{RC Circuit}
+\subsubsection{Charging}
+
+\begin{align*}
+    Q &= Q_0 e^{-t/\tau}\\
+    I &= I_0 e^{-t/\tau}\\
+    W_R &= \frac{1}{2} Q_\mathrm{f} \mathcal{E} && (\text{Joule
+	Heating})
+\end{align*}
+
+\subsubsection{Discharging}
+
+\begin{align*}
+    Q &= Q_\mathrm{f} \left({1 - e^{-t/\tau}}\right)\\
+    I &= I_0 e^{-t/\tau}\\
+\end{align*}
+
+\subsection{RL Circuit}
+
+\begin{align*}
+    I &= I_\mathrm{f} (1 - e^{-t/\tau}) && (\text{Charging})\\
+    I &= I_0 e^{-t/\tau} && (\text{Discharging})
+\end{align*}
+
+\vspace*{20ex}
+\section{Line}
+
+\begin{align*}
+    E_x &= \frac{kQ}{x^2} \quad (x \gg L)\\
+    B &= \frac{\mu_0}{4\pi} \frac{I}{R} \left({\sin \theta_2 - \sin
+	    \theta_1}\right)
+\end{align*}
+
+\subsection{Infinite Line}
+
+\begin{align*}
+    E &= \frac{2k\lambda}{R}\\
+    V &= 2k\lambda \ln \frac{R_\text{ref}}{R}\\
+    B &= \frac{\mu_0 I}{2\pi R}\\
+    \frac{\id{F_{12}}}{\id{\ell}} &= \frac{\mu_0}{2\pi} \frac{I_1 I_2}
+    {R} && (\text{The Amp\`{e}re})
+\end{align*}
+
+\section{Ring}
+
+\begin{align*}
+    E &= \frac{kQx}{\left({x^2 + a^2}\right)^{3/2}}\\
+    V &= \frac{kQ}{\sqrt{x^2 + a^2}}\\
+    \mu &= I\pi R^2\\
+    B &= \frac{\mu_0IR^2}{2\left({x^2 + R^2}\right)^{3/2}}\\
+	  &= \frac{\mu_0 I}{2R} \quad (x = 0)\\
+      &= \frac{\mu_0 \mu}{2\pi |x|^3} \quad (x \gg R)\\
+    B &= 
+    \begin{cases}
+	\frac{\mu_0I}{2\pi R^2} r & \quad r \leq R\\
+	\frac{\mu_0}{2\pi} \frac{I}{r} & \quad r \geq R
+    \end{cases}\\
+\end{align*}
+
+\section{Disk}
+
+\begin{align*}
+    E &= \sign x \cdot 2\pi k \sigma \left({1 - \frac{1}{\sqrt{1 +
+    (R/x)^2}}}\right)\\
+      &= \sign x \cdot 2\pi k \sigma \quad (R \to \infty)\\
+    V &= 2\pi k \sigma |x| \left({\sqrt{1 + (R / x)^2} - 1}\right)
+\end{align*}
+
+\section{Infinite Plane}
+
+\begin{align*}
+    E_x &= \sign x \cdot \frac{\sigma}{2\varepsilon_0}\\
+    V_x &= V_0 - 2\pi k \sigma |x|
+\end{align*}
+
+\section{Spherical Shell}
+
+\begin{align*}
+    E_r &=
+    \begin{cases}
+    k \frac{Q}{r^2} & \quad r > R\\
+    0 & \quad r < R
+    \end{cases}\\
+    V &=
+    \begin{cases}
+    \frac{kQ}{r} & \quad r \geq R\\
+    \frac{kQ}{R} & \quad r \leq R
+    \end{cases}
+\end{align*}
+
+\section{Solid Sphere}
+
+\begin{align*}
+    E_r &=
+    \begin{cases}
+    k \frac{Q}{r^2} & \quad r \geq R\\
+    k \frac{Q}{R^3} r & \quad r \leq R
+    \end{cases}\\
+    V &=
+    \begin{cases}
+    \frac{kQ}{r} & \quad r \geq R\\
+    \frac{kQ}{2R} \left({3 - \left({\frac{r}{R}}\right)^2}\right) &
+    \quad r \leq R
+    \end{cases}
+\end{align*}
+
+\section{Capacitance}
+
+\begin{align*}
+    C &= Q / V\\
+    C &= \frac{\varepsilon_0 A}{d} && (\text{Parrallel Plate})\\
+    C &= \frac{2\pi \varepsilon_0 L}{\ln (R_1 / R_2)} &&
+    (\text{Cylindrical})\\
+    \varepsilon &= \kappa \varepsilon_0\\
+    u_e &= \frac{1}{2}\varepsilon_0 E^2
+\end{align*}
+
+\section{Inductance}
+
+\begin{align*}
+    \phi_m &= LI\\
+    U_m &= \frac{1}{2} LI^2\\
+    u_m &= \frac{B^2}{2\mu_0}\\
+    L &= \mu_0 n^2 A \ell && (\text{Solenoid})
+\end{align*}
+
+\end{multicols*}
+\newpage
+% --------------------------------------------------------------------
+\begin{multicols*}{4}
+\begin{center}
+    \Large
+    Physics \textrm{I} \\
+    Formula Sheet
+\end{center}
+
+\subsection{Free Fall}
+
+\begin{align*}
+    h &= \frac{1}{2}gt^2\\
+    v &= gt\\
+      &= \sqrt{2hg}
+\end{align*}
+
+\section{Force}
+
+\begin{align*}
+    F_f &= \mu F_N && (\text{Friction})\\
+    F &= m \frac{v^2}{r} && (\text{Centripital})
+\end{align*}
+
+\section{Rotation}
+
+\begin{align*}
+    \omega     &= \omega_0 + \alpha t\\
+    \theta     &= \frac{\omega_i + \omega_f}{2} t\\
+    \theta     &= \omega_it + \tfrac{1}{2}\alpha t^2\\
+    \omega_f^2 &= \omega_i^2 + 2 \alpha \theta\\
+    v          &= r\omega\\
+    a          &= r\alpha\\
+    T          &= \frac{2\pi r}{v}\\
+    \omega     &= 2\pi f\\
+    \tau       &= I\alpha\\
+    L          &= I\omega\\
+    W          &= \tau \theta\\
+    K          &= \tfrac{1}{2}I\omega^2
+\end{align*}
+
+\section{Pressure}
+
+\begin{align*}
+    \rho &= \frac{m}{V}\\
+    P &= \frac{F}{A}\\
+    \Delta P &= \rho gh\\
+    \frac{F_1}{A_1} &= \frac{F_2}{A_2} && (\text{Pascal's
+	Principle})\\
+    Q &= A\nu && (\text{Flow Rate})\\
+    Q_1 &= Q_2\\
+    F_B &= \rho Vg\\
+    P_1 &+ \frac{1}{2}\rho \nu_1^2 + \rho gy_1\\
+	&= P_2 + \frac{1}{2}\rho \nu_2^2 + \rho gy_2 &&
+	(\text{Bernoulli's Equation})
+\end{align*}
+
+\section{Sound}
+
+\begin{align*}
+    I &= \frac{P}{A}\\
+      &= \frac{P}{4\pi r^2}\\
+    \beta &= 10 \log \left({\frac{I}{I_o}}\right)
+\end{align*}
+
+\section{Simple Harmonic Motion}
+\vspace{2ex}
+\subsection{General}
+
+\begin{align*}
+    x &= A \cos (\omega t + \phi)\\
+    k &= m\omega^2\\
+    U &= \tfrac{1}{2} kx^2\\
+    E &= \tfrac{1}{2} kA^2\\
+    T &= 2\pi \sqrt{\frac{m}{k}}\\
+    v_x &= \pm \sqrt{\tfrac{k}{m} (A^2 + x^2)}
+\end{align*}
+
+\subsection{Pendulum}
+
+\begin{align*}
+    T &= 2\pi \sqrt{\frac{l}{g}}\\
+    T &= 2\pi \sqrt{\frac{I}{mgd}}
+\end{align*}
+
+\end{multicols*}
+\end{document}
+
