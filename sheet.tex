@@ -4,7 +4,7 @@
 \usepackage{multicol}
 \usepackage{ifthen}
 \usepackage[landscape]{geometry}
-% \usepackage{endnotes}
+\usepackage{etoolbox}
 
 % To make this come out properly in landscape mode, do one of the following
 % 1.
@@ -98,8 +98,6 @@ minus 0.2ex}
     \vec{E}_{iP} &= \frac{kq_i}{r_{iP}^2} \hat{\mathbf{r}}_{iP}\\
     V &= \frac{kq}{r}\\
     U &= qV = \frac{kq'q}{r}\\
-    \phi_\text{net} &= \oint_S \bvec{E} \cdot \, \buvec{n} \id{A} =
-    \frac{Q}{\varepsilon_0} && (\text{Gauss's Law})\\
     U &= \frac{1}{2} \sum_{i=1}^n q_i V_i\\
     U &= \frac{1}{2} QV
 \end{align*}
@@ -128,8 +126,6 @@ minus 0.2ex}
     {r^2}\\
     \id{\vec{B}} &= \frac{\mu_0}{4\pi} \frac{I\id{\vec{\ell}} \times
     \buvec{r}} {r^2} && (\text{Biot-Savart Law})\\
-    \oint \bvec{B} &\cdot_C \id{\buvec{\ell}} = \mu_0 I_C &&
-    (\text{Amp\`{e}re's Law})\\
     V_\mathrm{H} &= E_\mathrm{H} w \\
     &= \upsilon_\mathrm{d}Bw && (\text{Hall Voltage})\\
     n &= \frac{|I|B}{tq_eV_\mathrm{H}}
@@ -296,6 +292,17 @@ minus 0.2ex}
     u_m &= \frac{B^2}{2\mu_0}\\
     L &= \mu_0 n^2 A \ell && (\text{Solenoid})
 \end{align*}
+
+\section{Maxwell's Equations}
+
+\setbool{@fleqn}{false}
+\begin{gather*}
+    \nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}\\
+    \nabla \cdot \vec{B} = 0\\
+    \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}\\
+    \nabla \times \vec{B} = \mu_0 \left({\vec{J} + \varepsilon_0
+	    \frac{\partial \vec{E}}{\partial t}}\right)
+\end{gather*}
 
 \end{multicols*}
 \newpage
