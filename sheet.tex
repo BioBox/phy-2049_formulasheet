@@ -4,6 +4,7 @@
 \usepackage{multicol}
 \usepackage{ifthen}
 \usepackage[landscape]{geometry}
+\usepackage{nicefrac}
 \usepackage{etoolbox}
 
 % To make this come out properly in landscape mode, do one of the following
@@ -293,6 +294,19 @@ minus 0.2ex}
     L &= \mu_0 n^2 A \ell && (\text{Solenoid})
 \end{align*}
 
+\section{EM Waves}
+
+\begin{align*}
+    E &= cB\\
+    u &= u_e + u_m = 2u_e\\
+      &= \nicefrac{EB}{\mu_0 c}\\
+    I &= u_\text{av}c\\
+      &= \frac{E_\text{rms}B_\text{rms}}{\mu_0}\\
+    \vec{S} &= \frac{\vec{E} \times \vec{B}}{\mu_0} && (\text{Poynting
+	Vector})\\
+    P_r &= \nicefrac{I}{c} && (\text{Radiation Pressure})
+\end{align*}
+
 \section{Maxwell's Equations}
 
 \setbool{@fleqn}{false}
@@ -388,6 +402,16 @@ minus 0.2ex}
 \begin{align*}
     T &= 2\pi \sqrt{\frac{l}{g}}\\
     T &= 2\pi \sqrt{\frac{I}{mgd}}
+\end{align*}
+
+\subsection{Waves}
+
+\begin{align*}
+    v &= f\lambda\\
+    y &= A \sin 2\pi \left({\frac{t}{T} - \frac{x}{\lambda}}\right) &&
+    +x\\
+    y &= A \sin 2\pi \left({\frac{t}{T} + \frac{x}{\lambda}}\right) &&
+    -x
 \end{align*}
 
 \end{multicols*}
