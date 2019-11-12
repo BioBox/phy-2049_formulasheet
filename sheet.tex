@@ -90,7 +90,8 @@ minus 0.2ex}
     \varepsilon_0 &= \frac{1}{4\pi k} \\
         &= \scinot{8.854}{-12} && \quad \mathrm{F \cdot m^{-1}}\\
 	\mu_0 &= \scinot{1.257}{-6} && \quad \mathrm{T \cdot m/A}\\
-    A_v &= \scinot{6.022}{23} && \quad (\text{None})
+    A_v &= \scinot{6.022}{23} && \quad (\text{None})\\
+    1 \: \text{year} &= \scinot{3.154}{7} && \quad \mathrm{s}
 \end{alignat*}
 
 \section{Electricity}
@@ -166,7 +167,7 @@ minus 0.2ex}
 	    R^2}} - \frac{z-z_2}{\sqrt{(z-z_2)^2 + R^2}}}\right)\\
       &= \frac{1}{2} \mu_0 nI \frac{\ell}{\sqrt{(\ell/2)^2 + R^2}}
 	  \quad (\text{Solenoid})\\
-      &\approx N\mu_0 I\\
+      &\approx n\mu_0 I\\
     L &= \mu_0 n^2 A \ell\\
     B &= \frac{\mu_0NI}{2\pi r} \qquad (\text{Toroid})\\
     \phi_m &= NBA \cos \theta
@@ -314,8 +315,9 @@ minus 0.2ex}
     \nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}\\
     \nabla \cdot \vec{B} = 0\\
     \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}\\
-    \nabla \times \vec{B} = \mu_0 \left({\vec{J} + \varepsilon_0
-	    \frac{\partial \vec{E}}{\partial t}}\right)
+    \nabla \times \vec{B} = \mu_0 \bigg({\vec{J} +
+	\underbrace{\varepsilon_0 \frac{\partial \vec{E}}{\partial
+	    t}}_{I_d/A}}\hspace{0.5ex}\bigg)
 \end{gather*}
 
 \end{multicols*}
